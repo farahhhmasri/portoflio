@@ -548,7 +548,8 @@ hr {
 }
 
 .footer {
-  background-color: #dc143c;
+  background-color: #212529;
+  color: #fff0f5;
   display: flex;
   justify-content: space-around;
   align-items: center;
