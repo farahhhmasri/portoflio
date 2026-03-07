@@ -1,0 +1,865 @@
+/* color palette: https://piktochart.com/tips/red-green-color-palette/ - berry delight */
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  /* width:100vw; */
+}
+
+h3 {
+  letter-spacing: 2px;
+}
+
+.wrapper {
+  min-height: 100vh;
+  /* background-color: black; 
+    color: #FFF0F5; */
+  overflow: visible;
+  color: black;
+  background-color: #fff0f5;
+}
+
+#light-mode-cb {
+  display: none;
+}
+
+#light-mode-cb:checked ~ .wrapper {
+  background-color: black;
+  color: #fff0f5;
+}
+
+#light-mode-cb:checked ~ .wrapper .footer {
+  background-color: #212529;
+  color: #dc143c;
+}
+
+#light-mode-cb:checked ~ .wrapper .navbar-brand {
+  color: #dc143c !important;
+}
+
+#light-mode-cb:checked ~ .wrapper .project-card {
+  background-color: black !important;
+}
+
+#light-mode-cb:checked ~ .wrapper .hero {
+  background-image: url("office.png");
+}
+
+#light-mode-cb:checked ~ .wrapper .tech-skills {
+  background-image: url("studyDark.png");
+}
+
+#light-mode-cb:checked ~ .wrapper .soft-skills {
+  background-image: url("meetingDark.png");
+}
+
+.hero {
+  background-image: url("designer.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
+  height: 65vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: left;
+  position: relative;
+}
+
+.name-row {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.profile-pic {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid #dc143c;
+  box-shadow: 0 0 10px #dc143c;
+}
+
+.hero-text {
+  padding-top: 5px;
+  padding-left: 10px;
+  z-index: 100;
+  font-weight: 100;
+  text-shadow: 4px 4px 4px #dc143c;
+}
+
+.hero-text h2 {
+  font-weight: lighter;
+}
+
+@keyframes textGlow {
+  0% {
+    text-shadow: 2px 2px 5px #dc143c;
+  }
+  50% {
+    text-shadow:
+      0 0 20px #dc143c,
+      0 0 40px #dc143c;
+  }
+  100% {
+    text-shadow: 2px 2px 5px #dc143c;
+  }
+}
+
+.star1 {
+  position: absolute;
+  width: 5%;
+  height: 7%;
+  top: 2%;
+  left: 70%;
+  animation: starPop 6s ease-in-out infinite;
+  animation-delay: 1s;
+}
+
+.star2 {
+  position: absolute;
+  width: 5%;
+  height: 7%;
+  top: 8%;
+  left: 75%;
+  animation: starPop 6s ease-in-out infinite;
+  animation-delay: 1.5s;
+}
+
+.star3 {
+  position: absolute;
+  width: 5%;
+  height: 7%;
+  top: 16%;
+  left: 78%;
+  animation: starPop 6s ease-in-out infinite;
+  animation-delay: 2s;
+}
+
+.star4 {
+  display: none;
+}
+
+.star5 {
+  display: none;
+}
+
+@keyframes starPop {
+  25% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+  75% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+.robot {
+  position: absolute;
+  opacity: 0;
+  top: 50%;
+  left: 50%;
+  width: 20%;
+  height: 29%;
+  animation: robotFlipGlitch 3s ease-in-out 1 forwards;
+}
+
+@keyframes robotFlipGlitch {
+  0% {
+    opacity: 0.5;
+    transform: translate(-50%, -50%) rotate(180deg);
+    top: 50%;
+  }
+  33% {
+    opacity: 0.75;
+    transform: translate(-50%, -50%) rotate(45deg);
+    top: 50%;
+  }
+  100% {
+    opacity: 1;
+    transform: translate(-50%, -50%) rotate(0deg);
+    top: 80%;
+  }
+}
+
+.hero a {
+  width: 30%;
+  font-size: 1.25rem;
+  border-radius: 5px;
+  background-color: #dc143c;
+  border-color: #dc143c;
+  color: white;
+  text-decoration: none;
+  text-align: center;
+  padding: 3px;
+}
+
+.hero a:hover {
+  font-size: larger;
+}
+
+@keyframes boxGlow {
+  from {
+    width: 0;
+    opacity: 0.25;
+  }
+  to {
+    width: 100%;
+    opacity: 1;
+  }
+}
+.about {
+  margin: 10px;
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  height: fit-content;
+  animation: fadeUp linear;
+  animation-timeline: view();
+  animation-range: entry 0% entry 100%;
+}
+
+.about h3 {
+  font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
+  width: 100%;
+  margin-bottom: 10px;
+  text-align: center;
+  font-weight: 100;
+  text-shadow: 2px 2px 5px #dc143c;
+  animation: textGlow 3s ease-in-out infinite;
+}
+
+.item {
+  border-radius: 5px;
+  padding: 5px;
+  width: 95%;
+  border: 1px solid gray;
+  text-align: left;
+  margin: 5px;
+  opacity: 0;
+  transform: translateX(-30px);
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease,
+    opacity 0.3s ease;
+}
+
+.item:nth-child(2) {
+  animation: slideIn 1.5s ease 0.3s forwards;
+}
+.item:nth-child(3) {
+  animation: slideIn 1.5s ease 0.6s forwards;
+}
+.item:nth-child(4) {
+  animation: slideIn 1.5s ease 0.9s forwards;
+}
+.item:nth-child(5) {
+  animation: slideIn 1.5s ease 1.2s forwards;
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateX(-30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.item:hover,
+.item:focus {
+  transform: translateX(5px); /* slides right instead of down */
+  box-shadow: 0 0 10px #dc143c;
+}
+
+.education {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  margin: 20px 5px;
+  animation: fadeLeft linear;
+  animation-timeline: view();
+  animation-range: entry 0% entry 100%;
+}
+
+@keyframes fadeLeft {
+  from {
+    opacity: 0;
+    transform: translateX(50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.education:target {
+  animation: slideIn 1.5s ease forwards;
+}
+
+.edu-header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation: textTyping 2s ease-in-out 1;
+  text-shadow: 2px 2px 5px #dc143c;
+  animation: textGlow 3s ease-in-out 1s infinite;
+}
+
+.education h3,
+hr {
+  font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
+  width: 100%;
+  text-align: center;
+  font-weight: 100;
+  margin: 10px 5px;
+}
+
+.skills {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-content: center;
+  text-align: center;
+  animation: fadeLeft linear;
+  animation-timeline: view();
+  animation-range: entry 0% entry 100%;
+}
+
+.skills h3 {
+  margin: 5px 10px;
+  text-shadow: 2px 2px 5px #dc143c;
+  font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
+  text-align: center;
+  width: 100%;
+  animation: textGlow 3s ease-in-out 3s infinite;
+}
+
+.tech-skills {
+  border-radius: 5px;
+  padding: 5px;
+  background-image: url("studyLight.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.skills-card {
+  background-color: rgba(100, 54, 54, 0.8);
+  width: 100%;
+  border-radius: 5px;
+  margin: 5px;
+  color: white;
+}
+
+.skills-card:hover {
+  transform: translateY(-5px);
+  background-color: rgba(220, 54, 54, 0.8);
+  box-shadow: 1px 1px 4px gray;
+}
+
+.soft-skills {
+  border-radius: 5px;
+  padding: 5px;
+  background-image: url("meetingLight.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.skills:target {
+  animation: foldOut 1.2s ease forwards;
+  transform-origin: top center;
+}
+
+@keyframes foldOut {
+  from {
+    opacity: 0;
+    transform: scaleY(0) rotateX(90deg);
+  }
+  to {
+    opacity: 1;
+    transform: scaleY(1) rotateX(0);
+  }
+}
+
+.projects {
+  opacity: 1;
+  border-radius: 5px;
+  margin: 10px 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  animation: fadeRight linear;
+  animation-timeline: view();
+  animation-range: entry 0% entry 100%;
+}
+
+@keyframes fadeRight {
+  from {
+    opacity: 0;
+    transform: translateX(-50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.projects:target {
+  animation: glitchIn 1.5s steps(2) forwards;
+}
+
+@keyframes glitchIn {
+  0% {
+    opacity: 0;
+    transform: translateX(-10px) skewX(10deg);
+    clip-path: inset(0 0 90% 0);
+  }
+  25% {
+    opacity: 1;
+    transform: translateX(10px) skewX(-10deg);
+    clip-path: inset(0 0 60% 0);
+  }
+  50% {
+    transform: translateX(-5px) skewX(5deg);
+    clip-path: inset(0 0 30% 0);
+  }
+  75% {
+    transform: translateX(5px);
+    clip-path: inset(0 0 10% 0);
+  }
+  100% {
+    transform: translateX(0) skewX(0);
+    clip-path: inset(0 0 0% 0);
+  }
+}
+
+.projects h3 {
+  margin: 5px 10px;
+  text-shadow: 2px 2px 5px #dc143c;
+  font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
+  text-align: center;
+  width: 100%;
+  animation: textGlow 3s ease-in-out 3s infinite;
+}
+
+.projects a {
+  width: 30%;
+  border-radius: 5px;
+  background-color: #dc143c;
+  border-color: #dc143c;
+  color: white;
+  text-decoration: none;
+  text-align: center;
+  padding: 3px;
+}
+
+.projects a:hover {
+  font-size: larger;
+}
+
+.project-card {
+  background-color: #fff0f5;
+  border-radius: 5px;
+  padding: 10px 5px;
+  text-align: center;
+  width: 95%;
+  border: 2px solid gray;
+  text-align: center;
+  margin: 5px;
+  box-shadow: 2px 2px 5px #dc143c;
+}
+
+.project-card:hover {
+  /* opacity: 0.5; */
+  transform: scale(1.05);
+}
+
+.experience {
+  margin: 20px 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  animation: fadeUp linear;
+  animation-timeline: view();
+  animation-range: entry 0% entry 100%;
+}
+
+.experience h3,
+.experience hr {
+  margin: 5px 10px;
+  text-shadow: 2px 2px 5px #dc143c;
+  font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
+  text-align: center;
+  width: 100%;
+  animation: textGlow 3s ease-in-out 3s infinite;
+}
+
+.exp-card {
+  border-radius: 5px;
+  padding: 10px 5px;
+  text-align: center;
+  width: 95%;
+  border: 2px solid gray;
+  text-align: center;
+  margin: 5px;
+}
+
+.exp-card:hover {
+  transform: translateX(5px);
+  opacity: 0.5;
+  box-shadow: 0 0 15px #dc143c;
+}
+
+.experience:target {
+  animation: textTyping 2s ease-in-out 1;
+}
+
+.footer {
+  background-color: #dc143c;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding: 5px 10px;
+}
+
+.footer a:hover {
+  color: #fff0f5;
+  transform: scale(1.3);
+  text-shadow: 0 0 10px gra;
+}
+
+/* ================================================================================ */
+
+/* Tablet */
+@media (min-width: 567px) and (max-width: 990px) {
+  .hero {
+    font-size: 3vw;
+  }
+
+  .profile-pic {
+    width: 60px;
+    height: 60px;
+  }
+
+  .hero h2 {
+    font-size: 6vw;
+  }
+
+  .star1 {
+    position: absolute;
+    width: 2%;
+    height: 3%;
+    top: 6%;
+    left: 68%;
+    animation: starPop 6s ease-in-out infinite;
+    animation-delay: 1s;
+  }
+
+  .star2 {
+    position: absolute;
+    width: 2%;
+    height: 3%;
+    top: 11%;
+    left: 75%;
+    animation: starPop 6s ease-in-out infinite;
+    animation-delay: 1.5s;
+  }
+
+  .star3 {
+    position: absolute;
+    width: 2%;
+    height: 3%;
+    top: 18%;
+    left: 77%;
+    animation: starPop 6s ease-in-out infinite;
+    animation-delay: 2s;
+  }
+
+  .star4 {
+    display: inline;
+    position: absolute;
+    width: 2%;
+    height: 3%;
+    top: 7%;
+    left: 61%;
+    animation: starPop 6s ease-in-out infinite;
+    animation-delay: 1s;
+  }
+
+  .star5 {
+    display: inline;
+    position: absolute;
+    width: 2%;
+    height: 3%;
+    top: 12%;
+    left: 58%;
+    animation: starPop 6s ease-in-out infinite;
+    animation-delay: 1.5s;
+  }
+
+  .robot {
+    position: absolute;
+    opacity: 0;
+    top: 60%;
+    left: 50%;
+    width: 10%;
+    height: 18%;
+    animation: robotFlipGlitch 3s ease-in-out 1 forwards;
+  }
+
+  .about {
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    text-align: center;
+    align-items: stretch;
+  }
+  .item {
+    width: 45%;
+    text-align: center;
+  }
+
+  .skills {
+    flex-direction: row;
+    align-items: stretch;
+  }
+
+  .tech-skills {
+    width: 50%;
+    background-size: cover;
+    background-position: center;
+    min-height: 400px;
+  }
+
+  .soft-skills {
+    width: 50%;
+    background-size: cover;
+    background-position: center;
+    min-height: 400px;
+    justify-content: flex-start;
+  }
+
+  .projects {
+    background-image: url("plane-flipped.png");
+    background-repeat: repeat;
+    background-position: 20% 90%;
+    background-size: 10% 25%;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: stretch;
+    justify-content: center;
+  }
+
+  .project-card {
+    width: 45%;
+  }
+
+  .experience {
+    flex-direction: row;
+    justify-content: center;
+    align-items: stretch;
+    flex-wrap: wrap;
+  }
+
+  .exp-card {
+    width: 45%;
+  }
+}
+
+/* Desktop */
+@media (min-width: 991px) {
+  .hero {
+    height: 35vw;
+    font-size: 2vw;
+    overflow: visible;
+    background-position: top right;
+    background-size: 60% 100%;
+    margin-bottom: 20px;
+  }
+
+  .profile-pic {
+    width: 80px;
+    height: 80px;
+  }
+
+  .hero-text {
+    padding-left: 25px;
+    font-weight: 3vw;
+  }
+
+  .hero h2 {
+    font-size: 5vw;
+  }
+
+  .star1 {
+    position: absolute;
+    width: 2%;
+    height: 3%;
+    top: 6%;
+    left: 78%;
+    animation: starPop 6s ease-in-out infinite;
+    animation-delay: 1s;
+  }
+
+  .star2 {
+    position: absolute;
+    width: 2%;
+    height: 3%;
+    top: 11%;
+    left: 82%;
+    animation: starPop 6s ease-in-out infinite;
+    animation-delay: 1.5s;
+  }
+
+  .star3 {
+    position: absolute;
+    width: 2%;
+    height: 3%;
+    top: 18%;
+    left: 84%;
+    animation: starPop 6s ease-in-out infinite;
+    animation-delay: 2s;
+  }
+
+  .star4 {
+    display: inline;
+    position: absolute;
+    width: 2%;
+    height: 3%;
+    top: 7%;
+    left: 74%;
+    animation: starPop 6s ease-in-out infinite;
+    animation-delay: 1s;
+  }
+
+  .star5 {
+    display: inline;
+    position: absolute;
+    width: 2%;
+    height: 3%;
+    top: 12%;
+    left: 71%;
+    animation: starPop 6s ease-in-out infinite;
+    animation-delay: 1.5s;
+  }
+
+  .robot {
+    position: absolute;
+    opacity: 0;
+    top: 60%;
+    left: 65%;
+    width: 10%;
+    height: 19%;
+    animation: robotFlipGlitch 3s ease-in-out 1 forwards;
+  }
+
+  .about {
+    margin-top: 15px;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    text-align: center;
+    align-items: stretch;
+  }
+  .item {
+    width: 25%;
+    text-align: center;
+  }
+
+  .item:hover {
+    box-shadow: 0 0 15px #dc143c;
+  }
+
+  .skills {
+    margin-top: 15px;
+    flex-direction: row;
+    align-items: stretch;
+  }
+
+  .tech-skills {
+    width: 50%;
+    background-size: cover;
+    background-position: center;
+    min-height: 400px;
+  }
+
+  .soft-skills {
+    background-color: rgba(0, 54, 54, 0.3);
+    width: 50%;
+    background-size: cover;
+    background-position: center;
+    min-height: 400px;
+    justify-content: center;
+  }
+
+  .skills-card {
+    width: 70%;
+  }
+
+  .projects {
+    background-image: url("plane-flipped.png");
+    background-repeat: repeat;
+    background-position: 20% 90%;
+    background-size: 10% 25%;
+    margin-top: 15px;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: stretch;
+    justify-content: center;
+  }
+
+  .project-card {
+    width: 25%;
+  }
+
+  .experience {
+    margin-top: 15px;
+    flex-direction: row;
+    justify-content: center;
+    align-items: stretch;
+    flex-wrap: wrap;
+  }
+
+  .exp-card {
+    width: 20%;
+  }
+
+  .footer i {
+    margin-right: 10px;
+  }
+}
